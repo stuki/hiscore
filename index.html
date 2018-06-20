@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Kenellä on eniten krapulaa?</title>
+  <style media="screen">
+    body {
+      background: black;
+      color: white;
+      font-family: monospace;
+    }
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 400px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    thead {
+      font-size: 1.5em;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+
+  $(function () {
+   var socket = io();
+   socket.on('data', (msg) => {
+     $('.center').html(msg);
+     $('.center').prepend("<h1>Kaamein kapula</h1>")
+   });
+ });
+  </script>
+</head>
+<body>
+  <div class="center">
+  </div>
+</body>
+</html>
